@@ -1,0 +1,12 @@
+<resources>
+    <style name="FullscreenTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimaryDark">#99000000</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:background">#4d000000</item>
+    </style>
+</resources>

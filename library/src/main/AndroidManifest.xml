@@ -1,2 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.imagegallery.library"/>
+          package="com.imagegallery.library">
+    <application>
+        <activity
+                android:name=".GalleryActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:theme="@style/FullscreenTheme"/>
+    </application>
+</manifest>
