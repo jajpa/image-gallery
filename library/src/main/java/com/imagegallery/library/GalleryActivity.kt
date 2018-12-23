@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView
  * Created by Josh on 01,Dec,2018
  */
 private const val UI_ANIMATION_DELAY = 300
-private const val UI_HIDE_ANIMATION_DELAY = 100
+private const val UI_HIDE_ANIMATION_DELAY = 300
 
 class GalleryActivity : AppCompatActivity(), GalleryAdapter.ImageTapInterface {
 
@@ -47,12 +47,6 @@ class GalleryActivity : AppCompatActivity(), GalleryAdapter.ImageTapInterface {
         supportActionBar?.show()
     }
 
-    fun convertDpToPixel(context: Context, dp: Float): Int {
-        val resources = context.resources
-        val metrics = resources.displayMetrics
-        return Math.round(dp * (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT))
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -64,6 +58,10 @@ class GalleryActivity : AppCompatActivity(), GalleryAdapter.ImageTapInterface {
             layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT)
             layoutManager =
                     LinearLayoutManager(this@GalleryActivity, HORIZONTAL, false)
+            background =
+                    ColorDrawable(
+                        ContextCompat.getColor(this@GalleryActivity, android.R.color.black)
+                    )
         }
         PagerSnapHelper().attachToRecyclerView(recyclerView)
         setContentView(recyclerView)
@@ -84,15 +82,15 @@ class GalleryActivity : AppCompatActivity(), GalleryAdapter.ImageTapInterface {
 
         val imgUrls = intent.getStringArrayListExtra(INTENT_EXTRA_LIST)
         recyclerView.adapter = GalleryAdapter(this, imgUrls)
-//        mHideHandler.postDelayed(mHideRunnable, UI_HIDE_ANIMATION_DELAY.toLong())
+        mHideHandler.postDelayed(mHideRunnable, UI_HIDE_ANIMATION_DELAY.toLong())
     }
 
-    /*override fun onResume() {
+    override fun onResume() {
         super.onResume()
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
-    }*/
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home)
