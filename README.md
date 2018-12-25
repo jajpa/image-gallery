@@ -30,12 +30,12 @@ val array = ArrayList<String>().apply {
                     "https://images.pexels.com/photos/460823/pexels-photo-460823.jpeg"
             ))
         }
-        GalleryBuilder.build(this)
-            .from(array)
-            .withTitle("Title")           // Title on the app bar
-            .withSubTitle("SubTitle")     // SubTitle on the app bar  
-            .position(1)                  // Position to load from in the list
-            .show()
+GalleryBuilder.build(this)
+    .from(array)
+    .withTitle("Title")           // Title on the app bar
+    .withSubTitle("SubTitle")     // SubTitle on the app bar  
+    .position(1)                  // Position to load from in the list
+    .show()
 ```
 That's it!
 
